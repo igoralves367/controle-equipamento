@@ -1,6 +1,7 @@
 package br.com.suprematech.controleequipamento.cliente.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +28,12 @@ public class ClienteController implements ClienteAPI {
 		List<ClienteListResponse> clientes = clienteService.buscarTodosClientes();
 		log.info("[Finaliza] ClienteController - getTodosClientes");
 		return clientes;
+	}
+
+	@Override
+	public void deleClienteComId(UUID idCliente) {
+		log.info("[inicia] ClienteController - deleClienteComId");
+		log.info("[idCliente] {}", idCliente);
+		log.info("[Finaliza] ClienteController - deleClienteComId");		
 	}
 }
