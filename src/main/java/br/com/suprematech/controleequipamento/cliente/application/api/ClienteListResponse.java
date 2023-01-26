@@ -2,6 +2,7 @@ package br.com.suprematech.controleequipamento.cliente.application.api;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.suprematech.controleequipamento.cliente.domain.Cliente;
 import lombok.Value;
@@ -14,7 +15,16 @@ public class ClienteListResponse {
 	private String cpfCnpj;
 	
 	public static List<ClienteListResponse> converte(List<Cliente> clientes) {
-		// TODO Auto-generated method stub
-		return null;
+		return clientes.stream()
+				.map(ClienteListResponse::new)
+				.collect(Collectors.toList());
+	}
+
+	public ClienteListResponse(Cliente cliente) {
+		this.idCliente = cliente.getIdCliente();
+		this.nomeCompleto = cliente.getNomeCompleto();
+		this.email = cliente.getEmail();
+		this.celular = cliente.getCelular();
+		this.cpfCnpj = cliente.getCpfCnpj();
 	}
 }

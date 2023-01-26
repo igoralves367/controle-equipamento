@@ -1,5 +1,7 @@
 package br.com.suprematech.controleequipamento.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.suprematech.controleequipamento.cliente.application.reposiory.ClienteRepository;
@@ -14,9 +16,17 @@ public class ClienteMongoRepository implements ClienteRepository {
 
 	@Override
 	public Cliente salva(Cliente cliente) {
-		log.info("[inicia] ClienteInfraRepository - salva");
+		log.info("[inicia] ClienteMongoRepository - salva");
 		clienteMongoSpringRepository.save(cliente);
-		log.info("[finaliza] ClienteInfraRepository - salva");
+		log.info("[finaliza] ClienteMongoRepository - salva");
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[inicia] ClienteMongoRepository - buscaTodosClientes");
+		List<Cliente> todosClientes = clienteMongoSpringRepository.findAll();
+		log.info("[finaliza] ClienteMongoRepository - buscaTodosClientes");	
+		return todosClientes;
 	}
 }
