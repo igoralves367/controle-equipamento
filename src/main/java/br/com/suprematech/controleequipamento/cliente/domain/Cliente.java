@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.suprematech.controleequipamento.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,4 +35,13 @@ public class Cliente {
 
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
+	
+	public Cliente(ClienteRequest clienteRequest) {
+		this.idCliente = UUID.randomUUID();
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.email = clienteRequest.getEmail();
+		this.celular = clienteRequest.getCelular();
+		this.cpfCnpj = clienteRequest.getCpfCnpj();
+		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
 }
