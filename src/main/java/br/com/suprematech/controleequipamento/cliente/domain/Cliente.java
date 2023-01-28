@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.suprematech.controleequipamento.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -43,5 +44,12 @@ public class Cliente {
 		this.celular = clienteRequest.getCelular();
 		this.cpfCnpj = clienteRequest.getCpfCnpj();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		this.nomeCompleto = clienteAlteracaoRequest.getNomeCompleto();
+		this.email = clienteAlteracaoRequest.getEmail();
+		this.celular = clienteAlteracaoRequest.getCelular();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
