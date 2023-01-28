@@ -1,9 +1,11 @@
 package br.com.suprematech.controleequipamento.cliente.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.suprematech.controleequipamento.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteListResponse;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteRequest;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteResponse;
@@ -33,5 +35,10 @@ public class ClienteApplicationService implements ClienteService {
 		List<Cliente> clientes = clienteRepository.buscaTodosClientes();
 		log.info("[finaliza] ClienteApplicationService - buscarTodosClientes");
 		return ClienteListResponse.converte(clientes);
+	}
+
+	@Override
+	public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		// TODO Auto-generated method stub	
 	}
 }
