@@ -25,7 +25,7 @@ import lombok.ToString;
 public class Equipamento {
 	@Id
 	private UUID idEquipamento;
-	private UUID idClienteDono;
+	private UUID idCliente;
 	@NotNull
 	private String tipoDeImpressora;
 	@NotNull
