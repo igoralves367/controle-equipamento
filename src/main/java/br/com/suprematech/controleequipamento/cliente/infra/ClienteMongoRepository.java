@@ -1,11 +1,14 @@
 package br.com.suprematech.controleequipamento.cliente.infra;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.suprematech.controleequipamento.cliente.application.reposiory.ClienteRepository;
 import br.com.suprematech.controleequipamento.cliente.domain.Cliente;
+import br.com.suprematech.controleequipamento.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 @Repository
@@ -28,5 +31,14 @@ public class ClienteMongoRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteMongoSpringRepository.findAll();
 		log.info("[finaliza] ClienteMongoRepository - buscaTodosClientes");	
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+		Cliente cliente = clienteMongoSpringRepository.findById(idCliente)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
+		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
+		return cliente;
 	}
 }
