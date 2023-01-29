@@ -43,6 +43,7 @@ public class EquipamentoController implements EquipamentoAPI {
 			EquipamentoAlteracaoRequest equipamentoAlteracaoRequest) {
 		log.info("[inicia] EquipamentoController - patchAlteraEquipamento");
 		log.info("[idEquipamento] {}", idEquipamento);
+		equipamentoService.patchAlteraEquipamento(idEquipamento, equipamentoAlteracaoRequest);
 		log.info("[Finaliza] EquipamentoController - patchAlteraEquipamento");	
 	}
 }
