@@ -34,7 +34,7 @@ public class EquipamentoController implements EquipamentoAPI {
 	public void deletaEquipamentoComId(UUID idEquipamento) {
 		log.info("[inicia] EquipamentoController - deletaEquipamentoComId");
 		log.info("[idCliente] {}", idEquipamento);
+		equipamentoService.deletaEquipamentoComId(idEquipamento);
 		log.info("[Finaliza] EquipamentoController - deletaEquipamentoComId");	
-		
 	}
 }
