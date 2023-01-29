@@ -35,10 +35,17 @@ public class ClienteMongoRepository implements ClienteRepository {
 
 	@Override
 	public Cliente buscaClienteAtravesId(UUID idCliente) {
-		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+		log.info("[inicia] ClienteMongoRepository - buscaClienteAtravesId");
 		Cliente cliente = clienteMongoSpringRepository.findById(idCliente)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
-		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
+		log.info("[finaliza] ClienteMongoRepository - buscaClienteAtravesId");
 		return cliente;
+	}
+
+	@Override
+	public void deletaCliente(Cliente cliente) {
+		log.info("[inicia] ClienteMongoRepository - deletaCliente");
+		clienteMongoSpringRepository.delete(cliente);
+		log.info("[finaliza] ClienteMongoRepository - deletaCliente");	
 	}
 }

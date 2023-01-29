@@ -12,4 +12,5 @@ public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
 	List<ClienteListResponse> buscarTodosClientes();
 	void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
+	void deletaClienteAtravesId(UUID idCliente);
 }
