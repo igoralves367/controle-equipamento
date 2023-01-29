@@ -1,5 +1,7 @@
 package br.com.suprematech.controleequipamento.equipamento.infra;
 
+import java.util.List;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -25,5 +27,13 @@ public class EquipamentoInfraMongoRepository implements EquipamentoRepository {
 		}
 		log.info("[finaliza] EquipamentoInfraRepository - salvaEquipamento");
 		return equipamento;
+	}
+
+	@Override
+	public List<Equipamento> buscarTodosEquipamentos() {
+		log.info("[inicia] EquipamentoInfraMongoRepository - buscarTodosEquipamentos");
+		List<Equipamento> todosEquipamentos = equipamentoMongoRepository.findAll();
+		log.info("[finaliza] EquipamentoInfraMongoRepository - buscarTodosEquipamentos");
+		return todosEquipamentos;
 	}
 }
