@@ -29,7 +29,8 @@ public class EquipamentoApplicationService implements EquipamentoService {
 	@Override
 	public List<EquipamentoListResponse> buscarTodosEquipamentos() {
 		log.info("[inicia] EquipamentoApplicationService - buscarTodosEquipamentos");
+		List<Equipamento> equipamentos = equipamentoRepository.buscarTodosEquipamentos();
 		log.info("[finaliza] EquipamentoApplicationService - buscarTodosEquipamentos");
-		return null;
+		return EquipamentoListResponse.converte(equipamentos);
 	}
 }
