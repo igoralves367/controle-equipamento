@@ -1,6 +1,7 @@
 package br.com.suprematech.controleequipamento.equipamento.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -35,5 +36,21 @@ public class EquipamentoInfraMongoRepository implements EquipamentoRepository {
 		List<Equipamento> todosEquipamentos = equipamentoMongoRepository.findAll();
 		log.info("[finaliza] EquipamentoInfraMongoRepository - buscarTodosEquipamentos");
 		return todosEquipamentos;
+	}
+	
+	@Override
+	public void deletaEquipamento(Equipamento equipamento) {
+		log.info("[inicia] EquipamentoInfraMongoRepository - deletaEquipamento");
+		equipamentoMongoRepository.delete(equipamento);
+		log.info("[finaliza] EquipamentoInfraMongoRepository - deletaEquipamento");	
+	}
+
+	@Override
+	public Equipamento buscarEquipamentoComId(UUID idEquipamento) {
+		log.info("[inicia] ClienteMongoRepository - buscaClienteAtravesId");
+		Equipamento equipamento = equipamentoMongoRepository.findById(idEquipamento)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Equipamento não encontrado"));
+		log.info("[finaliza] ClienteMongoRepository - buscaClienteAtravesId");
+		return equipamento;
 	}
 }

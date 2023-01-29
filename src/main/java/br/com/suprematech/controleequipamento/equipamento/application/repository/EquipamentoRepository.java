@@ -8,6 +8,6 @@ import br.com.suprematech.controleequipamento.equipamento.domain.Equipamento;
 public interface EquipamentoRepository {
 	Equipamento salvaEquipamento(Equipamento equipamento);
 	List<Equipamento> buscarTodosEquipamentos();
-	Equipamento buscaClienteAtravesId(UUID idEquipamento);
-	void deletaCliente(Equipamento equipamento);
+	void deletaEquipamento(Equipamento equipamento);
+	Equipamento buscarEquipamentoComId(UUID idEquipamento);
 }

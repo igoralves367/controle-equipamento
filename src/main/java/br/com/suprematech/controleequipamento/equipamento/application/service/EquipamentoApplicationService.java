@@ -38,8 +38,8 @@ public class EquipamentoApplicationService implements EquipamentoService {
 	@Override
 	public void deletaEquipamentoComId(UUID idEquipamento) {
 		log.info("[inicia] EquipamentoApplicationService - deletaEquipamentoComId");
-		Equipamento equipamento = equipamentoRepository.buscaClienteAtravesId(idEquipamento);
-		equipamentoRepository.deletaCliente(equipamento);
+		Equipamento equipamento = equipamentoRepository.buscarEquipamentoComId(idEquipamento);
+		equipamentoRepository.deletaEquipamento(equipamento);
 		log.info("[finaliza] EquipamentoApplicationService - deletaEquipamentoComId");	
 	}
 }
