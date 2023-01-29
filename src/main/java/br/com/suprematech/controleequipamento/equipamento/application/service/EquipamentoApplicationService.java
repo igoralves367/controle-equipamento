@@ -50,7 +50,7 @@ public class EquipamentoApplicationService implements EquipamentoService {
 		log.info("[inicia] ClienteApplicationService - pathAlteraCliente");
 		Equipamento equipamento = equipamentoRepository.buscarEquipamentoComId(idEquipamento);
 		equipamento.altera(equipamentoAlteracaoRequest);
-		equipamentoRepository.salva(equipamento);
+		equipamentoRepository.salvaEquipamento(equipamento);
 		log.info("[finaliza] ClienteApplicationService - pathAlteraCliente");
 		
 	}
