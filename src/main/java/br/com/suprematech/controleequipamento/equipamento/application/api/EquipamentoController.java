@@ -37,4 +37,12 @@ public class EquipamentoController implements EquipamentoAPI {
 		equipamentoService.deletaEquipamentoComId(idEquipamento);
 		log.info("[Finaliza] EquipamentoController - deletaEquipamentoComId");	
 	}
+
+	@Override
+	public void patchAlteraEquipamento(UUID idEquipamento,
+			EquipamentoAlteracaoRequest equipamentoAlteracaoRequest) {
+		log.info("[inicia] EquipamentoController - patchAlteraEquipamento");
+		log.info("[idEquipamento] {}", idEquipamento);
+		log.info("[Finaliza] EquipamentoController - patchAlteraEquipamento");	
+	}
 }

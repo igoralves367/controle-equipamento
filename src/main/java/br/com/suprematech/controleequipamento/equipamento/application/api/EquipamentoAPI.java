@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,4 +31,9 @@ public interface EquipamentoAPI {
 	@DeleteMapping(value = "/{idEquipamento}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaEquipamentoComId(@PathVariable UUID idEquipamento);
+	
+	@PatchMapping(value = "/{idEquipamento}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void patchAlteraEquipamento(@PathVariable UUID idEquipamento, 
+			@Valid @RequestBody EquipamentoAlteracaoRequest equipamentoAlteracaoRequest);
 }
