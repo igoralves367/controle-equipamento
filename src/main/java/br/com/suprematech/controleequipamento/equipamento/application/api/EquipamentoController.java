@@ -1,6 +1,7 @@
 package br.com.suprematech.controleequipamento.equipamento.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +28,13 @@ public class EquipamentoController implements EquipamentoAPI {
 		List<EquipamentoListResponse> equipamentos = equipamentoService.buscarTodosEquipamentos();
 		log.info("[finaliza] EquipamentoController - getTodosEquipamentos");
 		return equipamentos;
+	}
+
+	@Override
+	public void deletaEquipamentoComId(UUID idEquipamento) {
+		log.info("[inicia] EquipamentoController - deletaEquipamentoComId");
+		log.info("[idCliente] {}", idEquipamento);
+		log.info("[Finaliza] EquipamentoController - deletaEquipamentoComId");	
+		
 	}
 }
