@@ -24,7 +24,8 @@ public class EquipamentoController implements EquipamentoAPI {
 	@Override
 	public List<EquipamentoListResponse> getTodosEquipamentos() {
 		log.info("[inicia] EquipamentoController - getTodosEquipamentos");
+		List<EquipamentoListResponse> equipamentos = equipamentoService.buscarTodosEquipamentos();
 		log.info("[finaliza] EquipamentoController - getTodosEquipamentos");
-		return null;
+		return equipamentos;
 	}
 }
