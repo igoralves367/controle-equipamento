@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.suprematech.controleequipamento.equipamento.application.api.EquipamentoAlteracaoRequest;
 import br.com.suprematech.controleequipamento.equipamento.application.api.EquipamentoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -47,5 +48,13 @@ public class Equipamento {
 		this.modelo = equipamentoRequest.getModelo();
 		this.numeroDeSerie = equipamentoRequest.getNumeroDeSerie();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(EquipamentoAlteracaoRequest equipamentoAlteracaoRequest) {
+		this.tipoDeImpressora = equipamentoAlteracaoRequest.getTipoDeImpressora();
+		this.marca = equipamentoAlteracaoRequest.getMarca();
+		this.modelo = equipamentoAlteracaoRequest.getModelo();
+		this.numeroDeSerie = equipamentoAlteracaoRequest.getNumeroDeSerie();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
