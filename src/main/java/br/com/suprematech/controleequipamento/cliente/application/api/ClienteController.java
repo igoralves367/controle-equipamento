@@ -34,6 +34,7 @@ public class ClienteController implements ClienteAPI {
 	public void deleClienteComId(UUID idCliente) {
 		log.info("[inicia] ClienteController - deleClienteComId");
 		log.info("[idCliente] {}", idCliente);
+		clienteService.deletaClienteAtravesId(idCliente);
 		log.info("[Finaliza] ClienteController - deleClienteComId");		
 	}
 
