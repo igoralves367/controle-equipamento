@@ -1,6 +1,7 @@
 package br.com.suprematech.controleequipamento.equipamento.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,13 @@ public class EquipamentoApplicationService implements EquipamentoService {
 		List<Equipamento> equipamentos = equipamentoRepository.buscarTodosEquipamentos();
 		log.info("[finaliza] EquipamentoApplicationService - buscarTodosEquipamentos");
 		return EquipamentoListResponse.converte(equipamentos);
+	}
+
+	@Override
+	public void deletaEquipamentoComId(UUID idEquipamento) {
+		log.info("[inicia] EquipamentoApplicationService - deletaEquipamentoComId");
+		Equipamento equipamento = equipamentoRepository.buscaClienteAtravesId(idEquipamento);
+		equipamentoRepository.deletaCliente(equipamento);
+		log.info("[finaliza] EquipamentoApplicationService - deletaEquipamentoComId");	
 	}
 }
