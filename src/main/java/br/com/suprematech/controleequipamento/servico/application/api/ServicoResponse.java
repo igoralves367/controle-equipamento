@@ -1,5 +1,11 @@
 package br.com.suprematech.controleequipamento.servico.application.api;
 
-public class ServicoResponse {
+import java.util.UUID;
 
+import lombok.Builder;
+import lombok.Value;
+@Builder
+@Value
+public class ServicoResponse {
+	private UUID idServico;
 }
