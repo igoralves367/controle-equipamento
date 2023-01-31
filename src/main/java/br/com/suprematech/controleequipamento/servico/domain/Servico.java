@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.suprematech.controleequipamento.servico.application.api.ServicoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,4 +35,13 @@ public class Servico {
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
+	
+	public Servico(ServicoRequest servicoRequest) {
+		this.idServico = UUID.randomUUID();;
+		this.idEquipamento = servicoRequest.getIdEquipamento();
+		this.acessoriosDeixados = servicoRequest.getAcessoriosDeixados();
+		this.tipoDeServico = servicoRequest.getTipoDeServico();
+		this.observacoes = servicoRequest.getObservacoes();
+		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
 }
