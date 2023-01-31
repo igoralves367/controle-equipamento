@@ -29,7 +29,8 @@ public class ServicoApplicationService implements ServicoService {
 	@Override
 	public List<ServicoListResponse> buscarTodosServicos() {
 		log.info("[inicia] ServicoApplicationService - buscarTodosServicos");
+		List<Servico> servicos = servicoRepository.buscarTodosServicos();
 		log.info("[finaliza] ServicoApplicationService - buscarTodosServicos");
-		return null;
+		return ServicoListResponse.converte(servicos);
 	}
 }	

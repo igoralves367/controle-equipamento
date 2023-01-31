@@ -1,5 +1,7 @@
 package br.com.suprematech.controleequipamento.servico.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.suprematech.controleequipamento.servico.application.repository.ServicoRepository;
@@ -18,5 +20,12 @@ public class ServicoInfraMongoRepository implements ServicoRepository {
 		servicoMongoRepository.save(servico);
 		log.info("[finaliza] ServicoInfraMongoRepository - salvaServico");
 		return servico;
+	}
+
+	@Override
+	public List<Servico> buscarTodosServicos() {
+		log.info("[inicia] ServicoInfraMongoRepository - buscarTodosServicos");
+		log.info("[finaliza] ServicoInfraMongoRepository - buscarTodosServicos");
+		return null;
 	}
 }
