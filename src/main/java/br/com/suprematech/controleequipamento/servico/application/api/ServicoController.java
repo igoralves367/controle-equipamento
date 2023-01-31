@@ -45,6 +45,7 @@ public class ServicoController implements ServicoAPI {
 	public void patchAlteraServico(UUID idServico, @Valid ServicoAlteracaoRequest servicoAlteracaoRequest) {
 		log.info("[inicia] ServicoController - patchAlteraServico");
 		log.info("[idServico] {}", idServico);
+		servicoService.patchAlteraServico(idServico, servicoAlteracaoRequest);
 		log.info("[finaliza] ServicoController - patchAlteraServico");
 	}
 }
