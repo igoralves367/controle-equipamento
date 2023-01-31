@@ -38,6 +38,8 @@ public class ServicoApplicationService implements ServicoService {
 	@Override
 	public void deletaServicoComId(UUID idServico) {
 		log.info("[inicia] ServicoApplicationService - deletaServicoComId");
+		Servico servico = servicoRepository.buscarServicoComId(idServico);
+		servicoRepository.deletaServico(servico);
 		log.info("[finaliza] ServicoApplicationService - deletaServicoComId");
 	}
 }	
