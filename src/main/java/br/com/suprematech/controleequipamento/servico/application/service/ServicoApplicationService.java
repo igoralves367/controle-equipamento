@@ -1,6 +1,7 @@
 package br.com.suprematech.controleequipamento.servico.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,11 @@ public class ServicoApplicationService implements ServicoService {
 		List<Servico> servicos = servicoRepository.buscarTodosServicos();
 		log.info("[finaliza] ServicoApplicationService - buscarTodosServicos");
 		return ServicoListResponse.converte(servicos);
+	}
+
+	@Override
+	public void deletaServicoComId(UUID idServico) {
+		log.info("[inicia] ServicoApplicationService - deletaServicoComId");
+		log.info("[finaliza] ServicoApplicationService - deletaServicoComId");
 	}
 }	

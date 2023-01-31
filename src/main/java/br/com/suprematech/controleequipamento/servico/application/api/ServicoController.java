@@ -34,6 +34,8 @@ public class ServicoController implements ServicoAPI {
 	@Override
 	public void deletaServicoComId(UUID idServico) {
 		log.info("[inicia] ServicoController - deletaServicoComId");
+		log.info("[idServico] {}", idServico);
+		servicoService.deletaServicoComId(idServico);
 		log.info("[finaliza] ServicoController - deletaServicoComId");
 	}
 }
