@@ -3,6 +3,8 @@ package br.com.suprematech.controleequipamento.servico.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.suprematech.controleequipamento.servico.application.service.ServicoService;
@@ -37,5 +39,12 @@ public class ServicoController implements ServicoAPI {
 		log.info("[idServico] {}", idServico);
 		servicoService.deletaServicoComId(idServico);
 		log.info("[finaliza] ServicoController - deletaServicoComId");
+	}
+
+	@Override
+	public void patchAlteraServico(UUID idServico, @Valid ServicoAlteracaoRequest servicoAlteracaoRequest) {
+		log.info("[inicia] ServicoController - patchAlteraServico");
+		log.info("[idServico] {}", idServico);
+		log.info("[finaliza] ServicoController - patchAlteraServico");
 	}
 }
