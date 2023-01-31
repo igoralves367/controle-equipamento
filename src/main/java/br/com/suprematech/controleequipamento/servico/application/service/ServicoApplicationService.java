@@ -1,7 +1,10 @@
 package br.com.suprematech.controleequipamento.servico.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.suprematech.controleequipamento.servico.application.api.ServicoListResponse;
 import br.com.suprematech.controleequipamento.servico.application.api.ServicoRequest;
 import br.com.suprematech.controleequipamento.servico.application.api.ServicoResponse;
 import br.com.suprematech.controleequipamento.servico.application.repository.ServicoRepository;
@@ -21,5 +24,12 @@ public class ServicoApplicationService implements ServicoService {
 		Servico servico = servicoRepository.salvaServico(new Servico(servicoRequest));
 		log.info("[finaliza] ServicoApplicationService - criaServico");
 		return ServicoResponse.builder().idServico(servico.getIdEquipamento()).build();
+	}
+
+	@Override
+	public List<ServicoListResponse> buscarTodosServicos() {
+		log.info("[inicia] ServicoApplicationService - buscarTodosServicos");
+		log.info("[finaliza] ServicoApplicationService - buscarTodosServicos");
+		return null;
 	}
 }	

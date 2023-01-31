@@ -25,7 +25,8 @@ public class ServicoController implements ServicoAPI {
 	@Override
 	public List<ServicoListResponse> getTodosServicos() {
 		log.info("[inicia] ServicoController - getTodosServicos");
+		List<ServicoListResponse> servicos = servicoService.buscarTodosServicos();
 		log.info("[finaliza] ServicoController - getTodosServicos");
-		return null;
+		return servicos;
 	}
 }
