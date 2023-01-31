@@ -1,6 +1,7 @@
 package br.com.suprematech.controleequipamento.servico.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,11 @@ public class ServicoController implements ServicoAPI {
 		List<ServicoListResponse> servicos = servicoService.buscarTodosServicos();
 		log.info("[finaliza] ServicoController - getTodosServicos");
 		return servicos;
+	}
+
+	@Override
+	public void deletaServicoComId(UUID idServico) {
+		log.info("[inicia] ServicoController - deletaServicoComId");
+		log.info("[finaliza] ServicoController - deletaServicoComId");
 	}
 }
