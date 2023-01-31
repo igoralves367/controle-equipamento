@@ -25,7 +25,8 @@ public class ServicoInfraMongoRepository implements ServicoRepository {
 	@Override
 	public List<Servico> buscarTodosServicos() {
 		log.info("[inicia] ServicoInfraMongoRepository - buscarTodosServicos");
+		List<Servico> todosServicos = servicoMongoRepository.findAll();
 		log.info("[finaliza] ServicoInfraMongoRepository - buscarTodosServicos");
-		return null;
+		return todosServicos;
 	}
 }

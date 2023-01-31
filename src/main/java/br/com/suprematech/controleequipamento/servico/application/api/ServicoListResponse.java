@@ -2,6 +2,7 @@ package br.com.suprematech.controleequipamento.servico.application.api;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.suprematech.controleequipamento.servico.domain.Servico;
 import lombok.Value;
@@ -14,7 +15,16 @@ public class ServicoListResponse {
 	private String observacoes;
 	
 	public static List<ServicoListResponse> converte(List<Servico> servicos) {
-		// TODO Auto-generated method stub
-		return null;
+		return servicos.stream()
+				.map(ServicoListResponse::new)
+				.collect(Collectors.toList());
+	}
+
+	public ServicoListResponse(Servico servico) {
+		this.idServico = servico.getIdServico();
+		this.idEquipamento = servico.getIdEquipamento();
+		this.acessoriosDeixados = servico.getAcessoriosDeixados();
+		this.tipoDeServico = servico.getTipoDeServico();
+		this.observacoes = servico.getObservacoes();
 	}	
 }
