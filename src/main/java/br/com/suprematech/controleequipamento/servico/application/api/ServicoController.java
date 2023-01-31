@@ -1,5 +1,7 @@
 package br.com.suprematech.controleequipamento.servico.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.suprematech.controleequipamento.servico.application.service.ServicoService;
@@ -18,5 +20,12 @@ public class ServicoController implements ServicoAPI {
 		ServicoResponse servico = servicoService.criaServico(servicoRequest);
 		log.info("[finaliza] ServicoController - postServico");
 		return servico;
+	}
+
+	@Override
+	public List<ServicoListResponse> getTodosServicos() {
+		log.info("[inicia] ServicoController - getTodosServicos");
+		log.info("[finaliza] ServicoController - getTodosServicos");
+		return null;
 	}
 }
