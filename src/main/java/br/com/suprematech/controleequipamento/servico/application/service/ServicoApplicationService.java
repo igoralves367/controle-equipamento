@@ -49,6 +49,9 @@ public class ServicoApplicationService implements ServicoService {
 	@Override
 	public void patchAlteraServico(UUID idServico, @Valid ServicoAlteracaoRequest servicoAlteracaoRequest) {
 		log.info("[inicia] ServicoApplicationService - patchAlteraServico");
+		Servico servico = servicoRepository.buscarServicoComId(idServico);
+		servico.altera(servicoAlteracaoRequest);
+	    servicoRepository.salvaServico(servico);
 		log.info("[finaliza] ServicoApplicationService - patchAlteraServico");	
 	}
 }	
