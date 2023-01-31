@@ -1,9 +1,12 @@
 package br.com.suprematech.controleequipamento.servico.infra;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.suprematech.controleequipamento.handler.APIException;
 import br.com.suprematech.controleequipamento.servico.application.repository.ServicoRepository;
 import br.com.suprematech.controleequipamento.servico.domain.Servico;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +31,21 @@ public class ServicoInfraMongoRepository implements ServicoRepository {
 		List<Servico> todosServicos = servicoMongoRepository.findAll();
 		log.info("[finaliza] ServicoInfraMongoRepository - buscarTodosServicos");
 		return todosServicos;
+	}
+
+	@Override
+	public Servico buscarServicoComId(UUID idServico) {
+		log.info("[inicia] ServicoInfraMongoRepository - buscarServicoComId");
+		Servico servico = servicoMongoRepository.findById(idServico)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Servico não encontrado"));
+		log.info("[finaliza] ServicoInfraMongoRepository - buscarServicoComId");
+		return servico;
+	}
+
+	@Override
+	public void deletaServico(Servico servico) {
+		log.info("[inicia] ServicoInfraMongoRepository - deletaServico");
+		servicoMongoRepository.delete(servico);
+		log.info("[finaliza] ServicoInfraMongoRepository - deletaServico");
 	}
 }
