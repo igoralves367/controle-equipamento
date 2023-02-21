@@ -28,6 +28,10 @@ public interface EquipamentoAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<EquipamentoListResponse> getTodosEquipamentos();
 	
+	@GetMapping(value = "/{idEquipamento}")
+	@ResponseStatus(code = HttpStatus.OK)
+	BuscaEquipamentoResponse getBuscaEquipamento(@PathVariable UUID idEquipamento);
+	
 	@DeleteMapping(value = "/{idEquipamento}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaEquipamentoComId(@PathVariable UUID idEquipamento);

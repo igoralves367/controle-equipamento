@@ -46,4 +46,12 @@ public class EquipamentoController implements EquipamentoAPI {
 		equipamentoService.patchAlteraEquipamento(idEquipamento, equipamentoAlteracaoRequest);
 		log.info("[Finaliza] EquipamentoController - patchAlteraEquipamento");	
 	}
+
+	@Override
+	public BuscaEquipamentoResponse getBuscaEquipamento(UUID idEquipamento) {
+		log.info("[inicia] EquipamentoController - getBuscaEquipamento");
+		log.info("[idEquipamento] {}", idEquipamento);
+		log.info("[Finaliza] EquipamentoController - getBuscaEquipamento");
+		return null;
+	}
 }
