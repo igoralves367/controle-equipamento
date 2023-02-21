@@ -28,6 +28,10 @@ public interface ClienteAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<ClienteListResponse> getTodosClientes();
 	
+	@GetMapping(value = "/{idCliente}")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<ConsultaCliente> getConsultaCliente(@PathVariable UUID idCliente);
+	
 	@DeleteMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deleClienteComId(@PathVariable UUID idCliente);

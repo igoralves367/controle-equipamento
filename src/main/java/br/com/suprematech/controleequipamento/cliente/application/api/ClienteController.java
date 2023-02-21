@@ -45,4 +45,12 @@ public class ClienteController implements ClienteAPI {
 		clienteService.patchAlteraCliente(idCliente, clienteAlteracaoRequest);
 		log.info("[Finaliza] ClienteController - patchAlteraCliente");
 	}
+
+	@Override
+	public List<ConsultaCliente> getConsultaCliente(UUID idCliente) {
+		log.info("[inicia] ClienteController - getConsultaCliente");
+		log.info("[idCliente] {}", idCliente);
+		log.info("[Finaliza] ClienteController - getConsultaCliente");
+		return null;
+	}
 }
