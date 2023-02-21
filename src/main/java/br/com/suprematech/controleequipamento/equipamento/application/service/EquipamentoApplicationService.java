@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.suprematech.controleequipamento.equipamento.application.api.BuscaEquipamentoResponse;
 import br.com.suprematech.controleequipamento.equipamento.application.api.EquipamentoAlteracaoRequest;
 import br.com.suprematech.controleequipamento.equipamento.application.api.EquipamentoListResponse;
 import br.com.suprematech.controleequipamento.equipamento.application.api.EquipamentoRequest;
@@ -53,5 +54,13 @@ public class EquipamentoApplicationService implements EquipamentoService {
 		equipamentoRepository.salvaEquipamento(equipamento);
 		log.info("[finaliza] ClienteApplicationService - pathAlteraCliente");
 		
+	}
+
+	@Override
+	public BuscaEquipamentoResponse buscarEquipamentoComId(UUID idEquipamento) {
+		log.info("[inicia] ClienteApplicationService - pathAlteraCliente");
+		Equipamento equipamento = equipamentoRepository.buscarEquipamentoComId(idEquipamento);
+		log.info("[finaliza] ClienteApplicationService - pathAlteraCliente");
+		return new BuscaEquipamentoResponse(equipamento);
 	}
 }
