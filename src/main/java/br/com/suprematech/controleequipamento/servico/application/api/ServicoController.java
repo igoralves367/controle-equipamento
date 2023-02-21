@@ -53,7 +53,8 @@ public class ServicoController implements ServicoAPI {
 	public ConsultaServicoResponse getBuscaServico(UUID idServico) {
 		log.info("[inicia] ServicoController - getBuscaServico");
 		log.info("[idServico] {}", idServico);
+		ConsultaServicoResponse consultaServico = servicoService.buscarServicoComId(idServico);
 		log.info("[finaliza] ServicoController - getBuscaServico");
-		return null;
+		return consultaServico;
 	}
 }
