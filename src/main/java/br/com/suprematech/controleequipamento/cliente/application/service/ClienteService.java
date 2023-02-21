@@ -7,10 +7,12 @@ import br.com.suprematech.controleequipamento.cliente.application.api.ClienteAlt
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteListResponse;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteRequest;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteResponse;
+import br.com.suprematech.controleequipamento.cliente.application.api.ConsultaClienteResponse;
 
 public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
 	List<ClienteListResponse> buscarTodosClientes();
 	void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
 	void deletaClienteAtravesId(UUID idCliente);
+	ConsultaClienteResponse buscaClienteAtravesId(UUID idCliente);
 }

@@ -30,7 +30,7 @@ public interface ClienteAPI {
 	
 	@GetMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.OK)
-	List<ConsultaCliente> getConsultaCliente(@PathVariable UUID idCliente);
+	ConsultaClienteResponse getConsultaCliente(@PathVariable UUID idCliente);
 	
 	@DeleteMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

@@ -9,6 +9,7 @@ import br.com.suprematech.controleequipamento.cliente.application.api.ClienteAlt
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteListResponse;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteRequest;
 import br.com.suprematech.controleequipamento.cliente.application.api.ClienteResponse;
+import br.com.suprematech.controleequipamento.cliente.application.api.ConsultaClienteResponse;
 import br.com.suprematech.controleequipamento.cliente.application.reposiory.ClienteRepository;
 import br.com.suprematech.controleequipamento.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -52,5 +53,12 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
 		clienteRepository.deletaCliente(cliente);
 		log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesId");	
+	}
+
+	@Override
+	public ConsultaClienteResponse buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia] ClienteApplicationService - buscaClienteAtravesId");
+		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
+		return null;
 	}
 }
