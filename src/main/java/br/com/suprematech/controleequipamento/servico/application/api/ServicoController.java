@@ -48,4 +48,12 @@ public class ServicoController implements ServicoAPI {
 		servicoService.patchAlteraServico(idServico, servicoAlteracaoRequest);
 		log.info("[finaliza] ServicoController - patchAlteraServico");
 	}
+
+	@Override
+	public ConsultaServicoResponse getBuscaServico(UUID idServico) {
+		log.info("[inicia] ServicoController - getBuscaServico");
+		log.info("[idServico] {}", idServico);
+		log.info("[finaliza] ServicoController - getBuscaServico");
+		return null;
+	}
 }

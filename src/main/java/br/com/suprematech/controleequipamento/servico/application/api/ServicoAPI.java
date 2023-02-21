@@ -27,6 +27,10 @@ public interface ServicoAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<ServicoListResponse> getTodosServicos();
 	
+	@GetMapping(value = "/{idServico}")
+	@ResponseStatus(code = HttpStatus.OK)
+	ConsultaServicoResponse getBuscaServico(@PathVariable UUID idServico);
+	
 	@DeleteMapping(value = "/{idServico}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaServicoComId(@PathVariable UUID idServico);
