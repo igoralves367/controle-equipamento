@@ -51,7 +51,8 @@ public class EquipamentoController implements EquipamentoAPI {
 	public BuscaEquipamentoResponse getBuscaEquipamento(UUID idEquipamento) {
 		log.info("[inicia] EquipamentoController - getBuscaEquipamento");
 		log.info("[idEquipamento] {}", idEquipamento);
+		BuscaEquipamentoResponse buscaEquipamento = equipamentoService.buscarEquipamentoComId(idEquipamento);
 		log.info("[Finaliza] EquipamentoController - getBuscaEquipamento");
-		return null;
+		return buscaEquipamento;
 	}
 }
