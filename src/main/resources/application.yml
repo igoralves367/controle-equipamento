@@ -1,0 +1,14 @@
+server:
+ servlet:
+    context-path: /controle-equipamento/api
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://suprematech:140665@suprematech.gkcm2vu.mongodb.net/suprematech?retryWrites=true&w=majority}
+      auto-index-creation: true    
+      
+springdoc:
+  swagger-ui:
+    path: /public/swagger
